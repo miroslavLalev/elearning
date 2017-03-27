@@ -2,9 +2,7 @@ var path = require('path');
 var webpack = require('webpack');
 
 var ROOT_DIR = path.resolve(__dirname);
-var VIEWS_DIR = path.resolve(__dirname, 'views');
-var BUILD_DIR = path.resolve(__dirname, 'build');
-
+var BUILD_DIR = path.resolve(ROOT_DIR, 'build');
 
 module.exports = {
     target: 'node',

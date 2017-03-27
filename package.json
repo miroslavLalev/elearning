@@ -4,7 +4,6 @@
   "description": "Platform for E-Learning",
   "main": "server.js",
   "scripts": {
-    "babel": "babel --presets=es2015 server.js -o main.bundle.js",
     "start": "node build/main.bundle.js",
     "webpack": "webpack"
   },
