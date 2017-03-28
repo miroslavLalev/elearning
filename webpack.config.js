@@ -1,21 +1,20 @@
 var path = require('path');
 var webpack = require('webpack');
 
-var ROOT_DIR = path.resolve(__dirname);
-var BUILD_DIR = path.resolve(ROOT_DIR, 'build');
+var VIEWS_DIR = path.resolve(__dirname, 'views');
+var BUILD_DIR = path.resolve(__dirname, 'build');
 
 module.exports = {
-    target: 'node',
-    entry: ROOT_DIR + '/server.js',
+    entry: VIEWS_DIR + '/index.jsx',
     output: {
-	path: BUILD_DIR,
-        filename: 'main.bundle.js'
+	    path: BUILD_DIR,
+      filename: 'bundled.js'
     },
     resolve: {
-	extensions: ['.js', '.jsx']
+	     extensions: ['.js', '.jsx']
     },
     module: {
-        loaders: [
+      loaders: [
             {
                 test: /\.jsx?$/,
                 loader: 'babel-loader',

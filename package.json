@@ -4,8 +4,8 @@
   "description": "Platform for E-Learning",
   "main": "server.js",
   "scripts": {
-    "start": "node build/main.bundle.js",
-    "webpack": "webpack"
+    "start": "babel --presets=react,es2015 server.js -o comp.server.js && node comp.server.js",
+    "bundle": "webpack"
   },
   "author": "",
   "license": "MIT",

@@ -1,17 +1,19 @@
 import express from 'express';
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-import App from './views/index';
+import path from 'path';
 
+const PUBLIC_DIR = path.resolve(__dirname + '/public');
+const BUILD_DIR = path.resolve(__dirname + '/build');
 const server = express();
 
-server.get('/', function(request, response) {
-  const content = renderToString(<App />);
+server.get('/', (request, response) => {
+  response.sendFile(PUBLIC_DIR + '/index.html');
+});
 
-  response.send(content);
+server.get('/app', (request, response) => {
+  response.sendFile(BUILD_DIR + '/bundled.js');
 });
 
 var port = 8080;
-server.listen(port, function() {
+server.listen(port, () => {
   console.log('Server listening on port ' + port);
 });
