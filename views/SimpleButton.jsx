@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default class SimpleButton extends React.Component {
 
@@ -13,6 +14,10 @@ export default class SimpleButton extends React.Component {
   }
 
   render() {
-    return <button onClick={ (e) => this.buttonClicked(e) }>Click</button>;
+    return (
+        <button>
+          <Link style={{display: 'block', height: '100%'}} to={this.props.to}>{this.props.text}</Link>
+        </button>
+    );
   }
 }
