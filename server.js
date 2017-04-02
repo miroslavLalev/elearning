@@ -5,13 +5,7 @@ const PUBLIC_DIR = path.resolve(__dirname + '/public');
 const BUILD_DIR = path.resolve(__dirname + '/build');
 const server = express();
 
-server.get('/', (request, response) => {
-  response.sendFile(PUBLIC_DIR + '/index.html');
-});
-
-server.get('/app', (request, response) => {
-  response.sendFile(BUILD_DIR + '/bundled.js');
-});
+server.use(express.static('public'));
 
 var port = 8080;
 server.listen(port, () => {

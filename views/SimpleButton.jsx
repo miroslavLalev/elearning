@@ -16,7 +16,7 @@ export default class SimpleButton extends React.Component {
   render() {
     return (
         <button>
-          <Link style={{display: 'block', height: '100%'}} to={this.props.to}>{this.props.text}</Link>
+          <Link to={this.props.to} onClick={ e => { this.buttonClicked() } }>{this.props.text}</Link>
         </button>
     );
   }
