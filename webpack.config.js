@@ -2,7 +2,6 @@ var path = require('path');
 var webpack = require('webpack');
 
 var VIEWS_DIR = path.resolve(__dirname, 'views');
-var BUILD_DIR = path.resolve(__dirname, 'build');
 var PUBLIC_DIR = path.resolve(__dirname, 'public');
 
 module.exports = {
