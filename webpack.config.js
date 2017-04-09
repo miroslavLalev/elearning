@@ -8,8 +8,12 @@ module.exports = {
     entry: VIEWS_DIR + '/index.jsx',
     output: {
 	    path: PUBLIC_DIR,
-      filename: 'app.js'
+      filename: 'app.js',
+      publicPath: '/public'
     },
+    plugins: [
+      new webpack.HotModuleReplacementPlugin()
+    ],
     resolve: {
 	     extensions: ['.js', '.jsx']
     },
