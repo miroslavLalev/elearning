@@ -12,7 +12,11 @@ export default class DatabaseClient {
     return dbClient;
   }
 
-  executeQuery(query, success, error) {
-    return this.getClient().query(query);
+  singleResult(query, context) {
+    return this.getClient().one(query, Object.assign({schema: this.getSchema()}, context));
+  }
+
+  executeQuery(query, context) {
+    return this.getClient().query(query, Object.assign({schema: this.getSchema()}, context));
   }
 };

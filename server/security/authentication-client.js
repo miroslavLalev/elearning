@@ -1,6 +1,6 @@
 class AuthenticationClient {
   isRequestPermitted(req) {
-    return !!(req.headers['x-nginx-proxy']);
+    return !!(req.headers[process.env.HTTP_HEADER]);
   }
 }
 

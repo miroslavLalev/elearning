@@ -2,3 +2,4 @@ node_modules
 public/*.js
 comp.server.js
 .env
+npm-debug.log

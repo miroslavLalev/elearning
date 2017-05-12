@@ -2,7 +2,7 @@ import DatabaseClient from './abstract-client';
 
 class CoursesClient extends DatabaseClient {
   getCourses() {
-    return this.executeQuery(`SELECT * FROM ${this.getSchema()}.COURSES`);
+    return this.executeQuery("SELECT * FROM ${schema~}.COURSES");
   }
 }
 
