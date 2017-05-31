@@ -2,7 +2,6 @@ import React from 'react';
 import { Navbar, Nav, NavItem, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
-import LoginDialog from './dialogs/LoginDialog';
 import { showLoginDialog } from '../actions/static-actions';
 
 const _navigation = ({ _, showLogin }) => {
