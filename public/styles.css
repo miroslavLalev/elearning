@@ -1,5 +1,5 @@
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Verdana', 'Open Sans', sans-serif;
 }
 
 .img-cont {
@@ -8,40 +8,38 @@ body {
   width: 100%;
   height: 100%;
   background-size: cover;
-
   filter: blur(3px);
 }
 
 .welcome-jumbo {
   position: absolute;
   width: 100%;
-  opacity: 0.9;
-  top: 15%;
+  background-color: rgba(255, 255, 255, 0.6);
+
   text-align: center;
 }
 
 .welcome-owl {
-  width: 125;
-  height: 149;
+  display: block;
+  margin: 0 auto;
+  width: 10%;
+  height: auto;
 }
 
 .welcome-buttons {
-  transform: translateX(38%);
+  text-align: center;
 }
 
 .butt {
-  margin-right: 2%;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .page-footer {
-  position: absolute;
+  position: fixed;
   width: 100%;
   bottom: 0;
   text-align: center;
-  background-color: #f0ad4e;
-  opacity: 0.9;
-  font-size: 1.5rem;
-  font-weight: 300;
+  background-color: rgba(240, 173, 78, 0.6);
   color: #FFF;
-  padding: 10px 0;
 }

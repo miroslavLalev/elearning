@@ -11,16 +11,16 @@ const _home = ({ _, showLogin }) => {
       <div>
         <div className='img-cont'></div>
         <Jumbotron className='welcome-jumbo'>
-          <Image className='welcome-owl' src="resources/owl.png"/>
+          <Image className='welcome-owl' src="resources/owl.png" />
           <PageHeader>Welcome to <span style={{color: '#FF7F00'}}>ow<span style={{color: '#333'}}>L</span>earn</span>!</PageHeader>
           <p>This is the online learning resource you always needed. Feel free to start exploring the platform or sign up/sign in for immediate learning.</p>
-          <ButtonToolbar className='welcome-buttons'>
+          <div className='welcome-buttons'>
             <Button bsStyle='warning' bsSize='large' className='butt'>Explore</Button>
             <Button bsStyle='warning' bsSize='large' className='butt' onClick={ () => { showLogin(); } }>Sign in</Button>
             <Button bsStyle='warning' bsSize='large' className='butt' >Sign up</Button>
-          </ButtonToolbar>
+          </div>
         </Jumbotron>
-        <Footer/>
+        <Footer />
       </div>
   );
 };
