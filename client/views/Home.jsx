@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Jumbotron, Button, ButtonToolbar, PageHeader } from 'react-bootstrap';
+import { Image, Jumbotron, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 import Navigation from './Navigation';
@@ -11,16 +11,15 @@ const _home = ({ _, showLogin }) => {
       <div>
         <div className='img-cont'></div>
         <Jumbotron className='welcome-jumbo'>
-          <Image className='welcome-owl' src="resources/owl.png" />
-          <PageHeader>Welcome to <span style={{color: '#FF7F00'}}>ow<span style={{color: '#333'}}>L</span>earn</span>!</PageHeader>
+          <Image className='welcome-owl' src='resources/owl.png' />
+          <h1>Welcome to <span style={{color: '#FF7F00'}}>ow<span style={{color: '#333'}}>L</span>earn</span>!</h1>
           <p>This is the online learning resource you always needed. Feel free to start exploring the platform or sign up/sign in for immediate learning.</p>
           <div className='welcome-buttons'>
-            <Button bsStyle='warning' bsSize='large' className='butt'>Explore</Button>
             <Button bsStyle='warning' bsSize='large' className='butt' onClick={ () => { showLogin(); } }>Sign in</Button>
             <Button bsStyle='warning' bsSize='large' className='butt' >Sign up</Button>
+            <Button bsStyle='warning' bsSize='large' className='butt'>Explore</Button>
           </div>
         </Jumbotron>
-        <Footer />
       </div>
   );
 };

@@ -13,15 +13,19 @@ body {
 
 .welcome-jumbo {
   position: absolute;
-  width: 100%;
+  width: 80%;
   background-color: rgba(255, 255, 255, 0.6);
   text-align: center;
+  border-radius: 10px;
+  padding: 5rem;
+
+  /* Center accordingly */
   top: 50%;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .welcome-owl {
-  display: block;
   margin: 0 auto;
   width: 10%;
   height: auto;
@@ -39,7 +43,6 @@ body {
 .page-footer {
   position: fixed;
   width: 100%;
-  bottom: 0;
   text-align: center;
   background-color: rgba(240, 173, 78, 0.6);
   color: #FFF;
