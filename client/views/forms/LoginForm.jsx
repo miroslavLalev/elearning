@@ -6,12 +6,12 @@ export default class LoginForm extends React.Component {
     return (
       <Form horizontal>
         <FormGroup>
-          <Col componentClass={ControlLabel} sm={4}>Username/Email</Col>
+          <Col componentClass={ControlLabel} sm={4}>Email</Col>
           <Col sm={6}>
             <FormControl
               type="text"
-              placeholder="Enter Username or Email"
-              onChange={ (e) => { this.handleUsernameChange(e.target.value) }} />
+              placeholder="Enter Email"
+              onChange={ (e) => { this.handleEmailChange(e.target.value) }} />
           </Col>
         </FormGroup>
         <FormGroup>
@@ -27,8 +27,8 @@ export default class LoginForm extends React.Component {
     )
   }
 
-  handleUsernameChange(username) {
-    this.props.saveUsername(username);
+  handleEmailChange(email) {
+    this.props.saveEmail(email);
   }
 
   handlePasswordChange(password) {

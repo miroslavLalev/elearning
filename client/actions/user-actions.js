@@ -1,6 +1,6 @@
 import { tokenHelper } from '../proxies/helpers/token-helper';
 
-import { hideLoginDialog } from './static-actions';
+import { hideLoginDialog, hideRegisterDialog } from './static-actions';
 
 export const REQUEST_LOGIN = 'REQUEST_LOGIN';
 export const LOGIN = 'LOGIN';
@@ -10,6 +10,9 @@ export const LOGOUT = 'LOGOUT';
 
 export const REQUEST_REFRESH_TOKEN = 'REQUEST_REFRESH_TOKEN';
 export const REFRESH_TOKEN = 'REFRESH_TOKEN';
+
+export const REQUEST_REGISTER = 'REQUEST_REGISTER';
+export const REGISTER = 'REGISTER';
 
 function _requestLogin() {
   return { type: REQUEST_LOGIN };
@@ -33,4 +36,18 @@ export function login(credentials) {
       dispatch(hideLoginDialog());
     });
   }
+}
+
+function _requestRegister() {
+  return { type: REQUEST_REGISTER };
+}
+
+function _register() {
+  return {
+    type: REGISTER
+  }
+}
+
+export function register(data) {
+  
 }

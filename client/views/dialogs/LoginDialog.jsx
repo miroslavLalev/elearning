@@ -7,7 +7,7 @@ import { login } from '../../actions/user-actions';
 import LoginForm from '../forms/LoginForm';
 
 let c = {
-  username: '',
+  email: '',
   password: ''
 }
 
@@ -15,11 +15,11 @@ const _loginDialog = ({ visible, closeLogin, login }) => {
   return (
     <Modal show={visible} onHide={ () => { closeLogin() } }>
       <Modal.Header closeButton>
-        <Modal.Title>Log In</Modal.Title>
+        <Modal.Title>Sign In</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <LoginForm
-          saveUsername={ u => { c.username = u } }
+          saveEmail={ u => { c.email = u } }
           savePassword={ p => { c.password = p } }
         />
       </Modal.Body>

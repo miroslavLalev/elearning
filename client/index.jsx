@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 
 import Home from './views/Home';
 import LoginDialog from './views/dialogs/LoginDialog';
+import RegisterDialog from './views/dialogs/RegisterDialog';
 
 import { store } from './store';
 
@@ -15,6 +16,7 @@ const provider = (
         <Route exact path='/' component={Home} />
 
         <LoginDialog />
+        <RegisterDialog />
       </div>
     </Router>
   </Provider>
