@@ -2,8 +2,8 @@ import { usersClient } from '../db/db-client-registry';
 import { hashHelper } from '../helpers/hash-helper';
 
 class AuthorizationClient {
-  authorize(username, password) {
-    return usersClient.findUser(username)
+  authorize(email, password) {
+    return usersClient.findUser(email)
       .then((user) => {
         if (!user) {
           return false;

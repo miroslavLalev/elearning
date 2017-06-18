@@ -54,18 +54,18 @@ server.get('/courses',
 });
 
 server.post('/token', (req, res) => {
-  if (!req.body.username || !req.body.password) {
+  if (!req.body.email || !req.body.password) {
     res.sendStatus(401);
     return;
   }
 
-  usersClient.findUser(req.body.username).then(user => {
+  usersClient.findUser(req.body.email).then(user => {
     if (!user || !hashHelper.compareHashes(req.body.password, user.password)) {
       res.sendStatus(401);
       return;
     }
 
-    const token = encode({ id: user.username }, params.secretOrKey);
+    const token = encode({ id: user.email }, params.secretOrKey);
     res.json({
       token: token
     });
@@ -77,7 +77,7 @@ server.post('/token', (req, res) => {
 server.get('/token/refresh',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
-    const token = encode({ id: user.username }, params.secretOrKey);
+    const token = encode({ id: user.email }, params.secretOrKey);
     res.json({
       token: token
     });

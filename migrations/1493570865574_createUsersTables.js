@@ -8,10 +8,6 @@ exports.up = function(pgm) {
       unique: true,
       primaryKey: true
     },
-    username: {
-      type: 'varchar(16)',
-      unique: true
-    },
     email: {
       type: 'varchar(64)'
     },
