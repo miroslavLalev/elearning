@@ -4,6 +4,7 @@ import { HashRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import Home from './views/Home';
+import Courses from './views/Courses';
 import LoginDialog from './views/dialogs/LoginDialog';
 import RegisterDialog from './views/dialogs/RegisterDialog';
 
@@ -14,7 +15,7 @@ const provider = (
     <Router>
       <div>
         <Route exact path='/' component={Home} />
-
+        <Route path='/courses' component={Courses} />
         <LoginDialog />
         <RegisterDialog />
       </div>

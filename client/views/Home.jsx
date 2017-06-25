@@ -1,12 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { Image, Jumbotron, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
+import { LinkContainer } from 'react-router-bootstrap';
 
 import Navigation from './Navigation';
 import Footer from './Footer.jsx'
-import { showLoginDialog } from '../actions/static-actions';
+import { showLoginDialog, showRegisterDialog } from '../actions/static-actions';
 
-const _home = ({ _, showLogin }) => {
+const _home = ({ _, showLogin, showRegister }) => {
   return (
       <div>
         <div className='img-cont'></div>
@@ -16,8 +18,10 @@ const _home = ({ _, showLogin }) => {
           <p>This is the online learning resource you always needed. Feel free to start exploring the platform or sign up/sign in for immediate learning.</p>
           <div className='welcome-buttons'>
             <Button bsStyle='warning' bsSize='large' className='butt' onClick={ () => { showLogin(); } }>Sign in</Button>
-            <Button bsStyle='warning' bsSize='large' className='butt' >Sign up</Button>
-            <Button bsStyle='warning' bsSize='large' className='butt'>Explore</Button>
+            <Button bsStyle='warning' bsSize='large' className='butt' onClick={ () => { showRegister(); } }>Sign up</Button>
+            <LinkContainer to="/courses">
+              <Button bsStyle='warning' bsSize='large' className='butt'>Explore</Button>
+            </LinkContainer>
           </div>
         </Jumbotron>
       </div>
@@ -30,7 +34,8 @@ const homeContext = (state) => {
 
 const events = (dispatch) => {
   return {
-    showLogin: () => { dispatch(showLoginDialog()); }
+    showLogin: () => { dispatch(showLoginDialog()); },
+    showRegister: () => { dispatch(showRegisterDialog()); }
   };
 };
 
