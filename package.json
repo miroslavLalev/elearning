@@ -4,7 +4,7 @@
   "description": "Platform for E-Learning",
   "main": "server.js",
   "scripts": {
-    "start": "babel --presets=react,es2015 server.js -o comp.server.js && node comp.server.js",
+    "start-prod": "webpack && babel --presets=react,es2015 resources-server.js -o comp.resources-server.js && nodemon comp.resources-server.js",
     "start-dev": "webpack-dev-server --hot --inline",
     "bundle": "webpack",
     "start-server": "pg-migrate up && nodemon server/index.js --exec babel-node --presets=react,es2015",
