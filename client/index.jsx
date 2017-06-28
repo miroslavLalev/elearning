@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 
 import Home from './views/Home';
 import Courses from './views/Courses';
+import Course from './views/Course';
 import LoginDialog from './views/dialogs/LoginDialog';
 import RegisterDialog from './views/dialogs/RegisterDialog';
 
@@ -15,7 +16,8 @@ const provider = (
     <Router>
       <div>
         <Route exact path='/' component={Home} />
-        <Route path='/courses' component={Courses} />
+        <Route exact path='/courses' component={Courses} />
+        <Route path='/courses/:id' component={Course} />
         <LoginDialog />
         <RegisterDialog />
       </div>

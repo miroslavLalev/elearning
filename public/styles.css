@@ -86,3 +86,24 @@ body {
 .course-description {
   text-align: center;
 }
+
+.course-image{
+  background: url('resources/course-image.png');
+  height:300px;
+  width:300px;
+
+}
+
+.col-requirements{
+  margin-top:1rem;
+  border-radius: 10px;
+  border-style:ridge;
+  border-color: #4D4D4D;
+  background-color: #E8A73F;
+  color: #000000;
+  font-size: 20px;
+}
+
+.col-videos{
+  margin-top:1rem;
+}
