@@ -12,6 +12,12 @@ exports.up = function(pgm) {
       type: 'varchar(64)'
     },
     description: {
+      type: 'varchar(255)'
+    },
+    type: {
+      type: 'varchar(16)'
+    },
+    content: {
       type: 'text'
     },
     course: {

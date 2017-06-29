@@ -6,6 +6,6 @@ export default class User {
     this.firstName = plainUser.firstName;
     this.lastName = plainUser.lastName;
     this.password = hashHelper.hashPassword(plainUser.password);
-    this.role = role;
+    this.role = plainUser.role;
   };
 };

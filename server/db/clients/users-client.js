@@ -8,7 +8,7 @@ class UsersClient extends DatabaseClient {
     });
   }
 
-  findUser(username) {
+  findUser(email) {
     return this.singleResult("SELECT * FROM ${schema~}.USERS WHERE EMAIL = ${email}", {
       email: email
     });
@@ -16,8 +16,8 @@ class UsersClient extends DatabaseClient {
 
   createUser(user) {
     return this.executeQuery("INSERT INTO ${schema~}.USERS " +
-      "(EMAIL, FIRSTNAME, LASTNAME, PASSWORD) " +
-      "VALUES (${email}, ${firstName}, ${lastName}, ${password})", user);
+      "(EMAIL, FIRSTNAME, LASTNAME, PASSWORD, ROLE) " +
+      "VALUES (${email}, ${firstName}, ${lastName}, ${password}, ${role})", user);
   }
 }
 

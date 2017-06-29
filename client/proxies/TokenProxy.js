@@ -3,11 +3,11 @@ import Proxy from './Proxy';
 class TokenProxy extends Proxy {
   constructor() {
     super();
-    this._baseUrl = this._baseUrl + '/token';
+    this._baseUrl += '/token';
   }
 
   getToken(credentials) {
-    return this.doPost(undefined, undefined, credentials);
+    return this.doPost(_, _, credentials);
   }
 };
 

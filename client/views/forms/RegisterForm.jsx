@@ -60,8 +60,8 @@ export default class RegisterForm extends React.Component {
               componentClass='select'
               placeholder='student'
               onChange={ (e) => { this.handleUserTypeChange(e.target.value) }} >
-                <option value='student'>Student</option>
-                <option value='teacher'>Teacher</option>
+                <option value='STUDENT'>Student</option>
+                <option value='TEACHER'>Teacher</option>
             </FormControl>
           </Col>
         </FormGroup>

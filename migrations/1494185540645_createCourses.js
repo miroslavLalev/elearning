@@ -15,6 +15,10 @@ exports.up = function(pgm) {
     },
     description: {
       type: 'text'
+    },
+    author: {
+      type: 'serial',
+      references: 'elearning.users'
     }
   });
 };

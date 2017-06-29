@@ -3,11 +3,11 @@ import Proxy from './Proxy';
 class UsersProxy extends Proxy {
   constructor() {
     super();
-    this._baseUrl = this._baseUrl + '/users';
+    this._baseUrl += '/users';
   };
 
   register(user) {
-    return this.doPost(undefined, undefined, user);
+    return this.doPost(_, _, user);
   };
 };
 

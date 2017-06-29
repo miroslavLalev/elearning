@@ -8,6 +8,10 @@ import { hashHelper } from '../helpers/hash-helper';
 const TOKEN_PATH = '/token';
 const router = express.Router();
 
+const params = {
+  secretOrKey: 'verysecret'
+};
+
 router.post('/', (req, res) => {
   if (!req.body.email || !req.body.password) {
     res.sendStatus(401);
@@ -25,6 +29,7 @@ router.post('/', (req, res) => {
       token: token
     });
   }).catch(err => {
+    console.log(err);
     res.send(401);
   });
 });
