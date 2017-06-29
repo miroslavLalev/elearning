@@ -17,7 +17,7 @@ class UsersClient extends DatabaseClient {
   createUser(user) {
     return this.executeQuery("INSERT INTO ${schema~}.USERS " +
       "(EMAIL, FIRSTNAME, LASTNAME, PASSWORD, ROLE) " +
-      "VALUES (${email}, ${firstName}, ${lastName}, ${password}, ${role})", user);
+      "VALUES (${email}, ${firstname}, ${lastname}, ${password}, ${role})", user);
   }
 }
 

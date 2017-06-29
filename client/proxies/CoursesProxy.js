@@ -16,7 +16,7 @@ class CoursesProxy extends Proxy {
       console.log('Please authorize before adding course');
     }
 
-    return this.doPost(_, new Headers({
+    return this.doPost(undefined, new Headers({
       'Authorization': 'JWT ' + tokenRegistry.getToken()
     }), course);
   };

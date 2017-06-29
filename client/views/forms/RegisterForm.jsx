@@ -73,8 +73,8 @@ export default class RegisterForm extends React.Component {
     this.props.saveName(name);
   }
 
-  handleLastNameChange(lastName) {
-    this.props.saveName(lastName);
+  handleLastNameChange(lastname) {
+    this.props.saveName(lastname);
   }
 
   handleEmailChange(email) {

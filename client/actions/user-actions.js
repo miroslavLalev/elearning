@@ -1,3 +1,4 @@
+import { tokenRegistry } from '../registry/token-registry';
 import { hideLoginDialog, hideRegisterDialog } from './static-actions';
 
 export const REQUEST_LOGIN = 'REQUEST_LOGIN';
@@ -16,18 +17,20 @@ function _requestLogin() {
   return { type: REQUEST_LOGIN };
 };
 
-function _login(token) {
+function _login(user) {
   return {
     type: LOGIN,
-    token: token
+    user
   };
 };
 
 export function login(credentials) {
   return (dispatch, getState) => {
     dispatch(_requestLogin());
-    return window.tokenProxy.getToken(credentials).then(token => {
-      dispatch(_login(token));
+    return window.tokenProxy.getToken(credentials).then(obj => {
+      console.log(obj);
+      dispatch(_login(obj.user));
+      tokenRegistry.setToken(obj.token);
       dispatch(hideLoginDialog());
     });
   };

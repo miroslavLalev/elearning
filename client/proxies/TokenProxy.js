@@ -7,7 +7,7 @@ class TokenProxy extends Proxy {
   }
 
   getToken(credentials) {
-    return this.doPost(_, _, credentials);
+    return this.doPost(undefined, undefined, credentials);
   }
 };
 

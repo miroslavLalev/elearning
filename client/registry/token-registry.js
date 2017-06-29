@@ -13,6 +13,10 @@ class TokenRegistry {
   getToken(credentials) {
     return this._token;
   };
+
+  setToken(token) {
+    this._token = token;
+  };
 };
 
 const tokenRegistry = new TokenRegistry();

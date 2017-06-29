@@ -2,8 +2,8 @@ const initialState = [
   {
     id: '1',
     email: 'polito@gmail.com',
-    firstName: 'Polina',
-    lastName: 'Krasteva'
+    firstname: 'Polina',
+    lastname: 'Krasteva'
     // TODO: Add all
   }
 ];

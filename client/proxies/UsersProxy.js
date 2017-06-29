@@ -7,7 +7,7 @@ class UsersProxy extends Proxy {
   };
 
   register(user) {
-    return this.doPost(_, _, user);
+    return this.doPost(undefined, undefined, user);
   };
 };
 

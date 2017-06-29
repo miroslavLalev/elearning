@@ -8,7 +8,7 @@ import RegisterForm from '../forms/RegisterForm';
 
 let c = {
   name: '',
-  lastName: '',
+  lastname: '',
   email: '',
   password: '',
   repeated: '',
@@ -24,7 +24,7 @@ const _registerDialog = ({ visible, closeRegister, register }) => {
       <Modal.Body>
         <RegisterForm
           saveName= { n => { c.name = n } }
-          saveLastName = { l => { c.lastName = l } }
+          saveLastName = { l => { c.lastname = l } }
           saveEmail = { e => { c.email = e } }
           savePassword = { p => { c.password = p } }
           saveRepeatedPassword = { r => { c.repeated = r } }

@@ -5,7 +5,7 @@ import { Image, Col, FieldGroup, Input, Form, FormGroup, FormControl, ControlLab
 import Navigation from './Navigation';
 import { showLoginDialog, showRegisterDialog } from '../actions/static-actions';
 
-const _profile = ({ email, firstName, lastName, password, showLogin, showRegister }) => {
+const _profile = ({ email, firstname, lastname, password, showLogin, showRegister }) => {
     return (
             <div>
               <Navigation/>
@@ -20,7 +20,7 @@ const _profile = ({ email, firstName, lastName, password, showLogin, showRegiste
                   <Col sm={4}>
                     <FormControl
                       type="text"
-                      placeholder={firstName} />
+                      placeholder={firstname} />
                   </Col>
                   </FormGroup>
                   <FormGroup>
@@ -28,7 +28,7 @@ const _profile = ({ email, firstName, lastName, password, showLogin, showRegiste
                   <Col sm={4}>
                     <FormControl
                       type="text"
-                      placeholder={lastName} />
+                      placeholder={lastname} />
                   </Col>
                   </FormGroup>
                   <FormGroup>
@@ -69,10 +69,10 @@ const _profile = ({ email, firstName, lastName, password, showLogin, showRegiste
 
 const profileContext = (state) => {
   return {
-    email: state.userContext.selectedUser.email,
-    firstName: state.userContext.selectedUser.firstName,
-    lastName: state.userContext.selectedUser.lastName,
-    password: state.userContext.selectedUser.password };
+    email: state.userContext.user.email,
+    firstname: state.userContext.user.firstname,
+    lastname: state.userContext.user.lastname,
+    password: state.userContext.user.password };
 };
 
 const events = (dispatch) => {

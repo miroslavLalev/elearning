@@ -6,7 +6,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { viewsHelper } from './util/views-helper';
 import { showLoginDialog, showRegisterDialog } from '../actions/static-actions';
 
-const _navigation = ({ id, firstName, showLogin, showRegister }) => {
+const _navigation = ({ id, firstname, showLogin, showRegister }) => {
   return (
     <Navbar>
       <Navbar.Header>
@@ -19,14 +19,14 @@ const _navigation = ({ id, firstName, showLogin, showRegister }) => {
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav
-          className={ viewsHelper.determineClass('logged-user-menu', function() { return firstName.length > 0; }) }>
+          className={ viewsHelper.determineClass('logged-user-menu', function() { return !!firstname; }) }>
           <NavItem onClick={ () => { showLogin() } }>Sign In</NavItem>
           <NavItem onClick={ () => { showRegister() } }>Sign Up</NavItem>
         </Nav>
         {/*TODO:Add full check for logged user*/}
         <Nav pullRight
-          className={ viewsHelper.determineClass('logged-user-menu', function() { return !firstName }) }>
-          <NavDropdown title={firstName}>
+          className={ viewsHelper.determineClass('logged-user-menu', function() { return !firstname }) }>
+          <NavDropdown title={firstname}>
 
             <LinkContainer to="/users/{id}/profile"><MenuItem><Glyphicon glyph='user' /> Profile</MenuItem></LinkContainer>
             <MenuItem divider />
@@ -39,9 +39,10 @@ const _navigation = ({ id, firstName, showLogin, showRegister }) => {
 };
 
 const navContext = (state) => {
+  console.log(state);
    return {
-     id: state.userContext.selectedUser.id,
-     firstName: state.userContext.selectedUser.firstName
+     id: state.userContext.user.id,
+     firstname: state.userContext.user.firstname
    };
 };
 

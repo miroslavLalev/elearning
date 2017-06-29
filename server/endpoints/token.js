@@ -25,9 +25,7 @@ router.post('/', (req, res) => {
     }
 
     const token = encode({ id: user.email }, params.secretOrKey);
-    res.json({
-      token: token
-    });
+    res.json({ user, token });
   }).catch(err => {
     console.log(err);
     res.send(401);

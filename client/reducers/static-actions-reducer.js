@@ -1,5 +1,3 @@
-import { connect } from 'react-redux';
-
 import { objectsHelper } from '../helpers/objects-helper';
 import {  SHOW_LOGIN_DIALOG, HIDE_LOGIN_DIALOG, SHOW_REGISTER_DIALOG, HIDE_REGISTER_DIALOG } from '../actions/static-actions';
 
