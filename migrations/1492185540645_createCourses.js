@@ -9,7 +9,12 @@ exports.up = function(pgm) {
       primaryKey: true
     },
     name: {
-      type: 'varchar(32)'
+      type: 'varchar(32)',
+      notNull: true,
+      unique: true
+    },
+    description: {
+      type: 'text'
     }
   });
 };
