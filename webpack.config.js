@@ -12,7 +12,12 @@ module.exports = {
       publicPath: '/public'
     },
     plugins: [
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.DefinePlugin({
+        'process.env': {
+          'SERVICE_URL': JSON.stringify('https://owlearn.online')
+        }
+      })
     ],
     resolve: {
 	     extensions: ['.js', '.jsx']

@@ -1,5 +1,3 @@
-import { tokenHelper } from '../proxies/helpers/token-helper';
-
 import { hideLoginDialog, hideRegisterDialog } from './static-actions';
 
 export const REQUEST_LOGIN = 'REQUEST_LOGIN';
@@ -29,8 +27,7 @@ export function login(credentials) {
   console.log(credentials)
   return (dispatch, getState) => {
     dispatch(_requestLogin());
-    // todo: make it work with credentials
-    return tokenHelper.getToken(credentials).then(token => {
+    return window.tokenProxy.getToken(credentials).then(token => {
       console.log('Logged in! ' + token);
       dispatch(_login(token));
       dispatch(hideLoginDialog());
@@ -49,5 +46,5 @@ function _register() {
 }
 
 export function register(data) {
-  
+
 }

@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
+import ProxiesRegistry from './proxies/ProxiesRegistry';
+new ProxiesRegistry().registerProxies();
+
 import Home from './views/Home';
 import Courses from './views/Courses';
 import Course from './views/Course';
