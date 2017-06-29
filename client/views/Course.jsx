@@ -6,20 +6,26 @@ import {
   Button,
   ListGroup,
   ListGroupItem,
-  Media
+  Media,
+  Image
 
 } from 'react-bootstrap';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
+
+import LectureDialog from './dialogs/LectureDialog';
 import Navigation from './Navigation';
+import { showLectureDialog } from '../actions/static-actions';
 
-const _course = ({ course }) => {
+const _course = ({ course, showLecture }) => {
   return (
-
     <div>
+      <LectureDialog />
       <Navigation/>
       <Row>
-        <Col sm={3} smOffset={1} className='course-image'></Col>
-        <Col sm={8} className='course-info'>
+        <Col sm={3} smOffset={1}>
+          <Image src='../public/resources/course-image.png'></Image>
+        </Col>
+        <Col sm={7} className='course-info'>
           <h2>{course.name}</h2>
           <p>{course.description}</p>
           <h2>What will you learn</h2>
@@ -38,7 +44,7 @@ const _course = ({ course }) => {
         </Col>
       </Row>
       <Row>
-        <Col sm={3} smOffset={1} className='col-requirements'>
+        <Col sm={3} smOffset={1} >
           <h2>Requirements</h2>
           <ul>
           {
@@ -48,31 +54,26 @@ const _course = ({ course }) => {
           }
         </ul>
         </Col>
-        <Col sm={6} smOffset={1} className='col-videos'>
-          <Row>
-            <Media>
-              <Media.Left>
-                <img width={64} height={64} src="../public/resources/171x180.png"/>
-              </Media.Left>
-              <Media.Body>
-                <Media.Heading>Video Heading</Media.Heading>
-                <p>About video</p>
-              </Media.Body>
-            </Media>
-          </Row>
-          <Row>
-            <Media>
-              <Media.Left>
-                <img width={64} height={64} src="../public/resources/171x180.png"/>
-              </Media.Left>
-              <Media.Body>
-                <Media.Heading>Video Heading</Media.Heading>
-                <p>About video</p>
-              </Media.Body>
-            </Media>
-          </Row>
+        <Col sm={8}>
+          {
+            course.lectures.map( (lecture) =>
+              <Row key={lecture.id} >
+                <Col sm={1}>
+                  <Image className='course-video-position' width={64} height={64} src='../public/resources/171x180.png' rounded/>
+                </Col>
+                <Col sm={7} smOffset={1}>
+                  <h2>{lecture.name}</h2>
+                  <p>{lecture.about}</p>
+                </Col>
+                <Button  bsStyle='warning' className='course-button-position'  onClick={ () => { showLecture() } }>
+                  Learn more
+                </Button>
+              </Row>
+            )
+          }
         </Col>
       </Row>
+
 
     </div>
   );
@@ -85,7 +86,9 @@ const courseContext = (state) => {
 };
 
 const events = (dispatch) => {
-  return {};
+  return {
+    showLecture: () => { dispatch(showLectureDialog()) }
+  };
 };
 
 const Course = connect(courseContext, events)(_course);
