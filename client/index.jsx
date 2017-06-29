@@ -9,6 +9,7 @@ new ProxiesRegistry().registerProxies();
 import Home from './views/Home';
 import Courses from './views/Courses';
 import Course from './views/Course';
+import Profile from './views/Profile';
 import LoginDialog from './views/dialogs/LoginDialog';
 import RegisterDialog from './views/dialogs/RegisterDialog';
 
@@ -21,6 +22,7 @@ const provider = (
         <Route exact path='/' component={Home} />
         <Route exact path='/courses' component={Courses} />
         <Route path='/courses/:id' component={Course} />
+        <Route path='/users/:id/profile' component={Profile} />
         <LoginDialog />
         <RegisterDialog />
       </div>

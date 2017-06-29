@@ -107,3 +107,16 @@ body {
 .col-videos{
   margin-top:1rem;
 }
+
+.edit-profile-heading {
+  text-align: center;
+  color: #f0ad4e;
+}
+
+.invisible {
+  display: none !important;
+}
+
+.profile-info {
+  text-align: center;
+}

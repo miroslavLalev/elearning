@@ -1,15 +1,15 @@
-const initialState = {
-  selectedUser: {
+const initialState = [
+  {
     id: '1',
     email: 'polito@gmail.com',
     firstName: 'Polina',
     lastName: 'Krasteva'
     // TODO: Add all
   }
-}
+];
 
-const userContext = (state = initialState, action) => {
+const usersContext = (state = initialState, action) => {
   return state;
 };
 
-export { userContext };
+export { usersContext };
