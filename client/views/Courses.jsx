@@ -4,10 +4,13 @@ import Navigation from './Navigation';
 import { LinkContainer } from 'react-router-bootstrap';
 import { connect } from 'react-redux';
 
-const _courses = ({ courses }) => {
+import { showCourseCreationDialog } from '../actions/static-actions';
+import CourseCreationDialog from './dialogs/CourseCreationDialog';
+const _courses = ({ courses, showCourseCreation }) => {
   return (
     <div>
       <Navigation/>
+      <CourseCreationDialog/>
       <Col sm={2}>
         <Navbar fluid className='filter-sidebar'>
         <Navbar.Collapse>
@@ -45,6 +48,9 @@ const _courses = ({ courses }) => {
           </Col>
         )
       })}
+      <Col smOffset={10}>
+        <Button bsStyle='warning' className='courses-create-butt' onClick={ () => { showCourseCreation() } }>Create course</Button>
+      </Col>
     </div>
   );
 };
@@ -56,7 +62,9 @@ const coursesContext = (state) => {
 };
 
 const events = (dispatch) => {
-  return {};
+  return {
+    showCourseCreation: () => { dispatch(showCourseCreationDialog()); }
+  };
 };
 
 const Courses = connect(coursesContext, events)(_courses);

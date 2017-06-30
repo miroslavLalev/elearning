@@ -82,7 +82,9 @@ body {
   height: 180px;
   margin-top: 1rem;
 }
-
+.courses-create-butt{
+  margin-top: 1rem;
+}
 .course-description {
   text-align: center;
 }

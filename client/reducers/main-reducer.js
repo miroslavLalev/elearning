@@ -7,6 +7,7 @@ import { courseContext } from './course-view-reducer';
 import { usersContext } from './users-reducer';
 import { userContext } from './user-actions-reducer';
 import { lectureContext } from './lecture-reducer';
+import { courseCreationContext } from './course-creation-reducer';
 
 const reducer = combineReducers({
   localContext,
@@ -14,7 +15,8 @@ const reducer = combineReducers({
   courseContext,
   usersContext,
   userContext,
-  lectureContext
+  lectureContext,
+  courseCreationContext
 });
 
 export { reducer };

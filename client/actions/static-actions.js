@@ -4,6 +4,8 @@ export const SHOW_REGISTER_DIALOG = 'SHOW_REGISTER_DIALOG';
 export const HIDE_REGISTER_DIALOG = 'HIDE_REGISTER_DIALOG';
 export const SHOW_LECTURE_DIALOG = 'SHOW_LECTURE_DIALOG';
 export const HIDE_LECTURE_DIALOG = 'HIDE_LECTURE_DIALOG';
+export const SHOW_COURSE_CREATION_DIALOG = 'SHOW_COURSE_CREATION_DIALOG';
+export const HIDE_COURSE_CREATION_DIALOG = 'HIDE_COURSE_CREATION_DIALOG';
 
 export function showLoginDialog() {
   return { type: SHOW_LOGIN_DIALOG };
@@ -27,4 +29,12 @@ export function showLectureDialog() {
 
 export function hideLectureDialog() {
   return { type: HIDE_LECTURE_DIALOG };
+};
+
+export function showCourseCreationDialog() {
+  return { type: SHOW_COURSE_CREATION_DIALOG };
+};
+
+export function hideCourseCreationDialog() {
+  return { type: HIDE_COURSE_CREATION_DIALOG };
 };
