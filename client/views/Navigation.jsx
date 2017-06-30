@@ -26,7 +26,7 @@ const _navigation = ({ id, firstname, showLogin, showRegister }) => {
         {/*TODO:Add full check for logged user*/}
         <Nav pullRight
           className={ viewsHelper.determineClass('logged-user-menu', function() { return !firstname }) }>
-          <NavDropdown title={firstname}>
+          <NavDropdown title={firstname} id='nav-dropdown'>
 
             <LinkContainer to="/users/{id}/profile"><MenuItem><Glyphicon glyph='user' /> Profile</MenuItem></LinkContainer>
             <MenuItem divider />

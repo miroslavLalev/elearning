@@ -46,7 +46,7 @@ const dialogContext = (state) => {
 const events = (dispatch) => {
   return {
     closeRegister: () => { dispatch(hideRegisterDialog()); },
-    register: (data) => { dispatch(register(date)); }
+    register: (data) => { dispatch(register(data)); }
   };
 };
 

@@ -16,9 +16,9 @@ const _courses = ({ courses, showCourseCreation }) => {
         <Navbar.Collapse>
           <Nav bsStyle="pills" stacked>
             <NavDropdown title='Topic' className='criteria' id='topic'>
-              <MenuItem eventKey='1'>Math</MenuItem>
-              <MenuItem eventKey='2'>Biology</MenuItem>
-              <MenuItem eventKey='3'>Chemistry</MenuItem>
+              <MenuItem eventKey='1'>Data Science</MenuItem>
+              <MenuItem eventKey='2'>Probability</MenuItem>
+              <MenuItem eventKey='3'>Languages</MenuItem>
             </NavDropdown>
             <NavDropdown title='Popularity' className='criteria' id='popularity'>
               <MenuItem eventKey='1'>Increasing</MenuItem>

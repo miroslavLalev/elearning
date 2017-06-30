@@ -3,11 +3,11 @@ import { LOGIN } from '../actions/user-actions';
 
 const initialState = {
   user: {
-    id: '',
-    email: '',
-    firstname: '',
-    lastname: '',
-    role: ''
+    id: '1',
+    email: 'polito@gmail.com',
+    firstname: 'Polina',
+    lastname: 'Krasteva',
+    role: 'STUDENT'
   }
 }
 
