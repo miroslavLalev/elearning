@@ -2,8 +2,7 @@ import { fetchHelper } from './helpers/fetch-helper';
 
 export default class Proxy {
   constructor() {
-    // this._baseUrl = process.env.SERVICE_URL;
-    this._baseUrl = 'https://localhost';
+    this._baseUrl = process.env.SERVICE_URL;
   };
 
   doGet(uri, headers) {

@@ -1,5 +1,3 @@
-import { connect } from 'react-redux';
-
 import { SHOW_LECTURE_DIALOG, HIDE_LECTURE_DIALOG } from '../actions/static-actions';
 import { objectsHelper } from '../helpers/objects-helper';
 

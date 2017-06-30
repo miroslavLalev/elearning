@@ -20,4 +20,11 @@ class CoursesProxy extends Proxy {
       'Authorization': 'JWT ' + tokenRegistry.getToken()
     }), course);
   };
+
+  getCourse(id) {
+    return this.doGet(`/${id}`);
+  };
 };
+
+const coursesProxy = new CoursesProxy();
+export { coursesProxy };

@@ -1,5 +1,9 @@
+import { objectsHelper } from '../helpers/objects-helper';
+import { FETCH_COURSE, RECEIVE_COURSE } from '../actions/courses-actions';
+
 const initialState = {
-  selectedCourse: {
+  isFetching: false,
+  course: {
     id: '1',
     name: 'Introduction to Probability and Data',
     requirements: ['Basic Maths'],
@@ -20,7 +24,16 @@ const initialState = {
 };
 
 const courseContext = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case FETCH_COURSE:
+      return objectsHelper.mergeObjects(state, { isFetching: true });
+      break;
+    case RECEIVE_COURSE:
+      return objectsHelper.mergeObjects(state, { isFetching: false, course: action.course })
+      break;
+    default:
+      return state;
+  }
 };
 
 export { courseContext };

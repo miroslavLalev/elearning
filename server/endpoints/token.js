@@ -33,7 +33,7 @@ router.post('/', (req, res) => {
 });
 
 router.get('/token/refresh',
-  passport.authenticate('jwt', { session: false }),
+  passport.authenticate('jwt', { session: true }),
   (req, res) => {
     const token = encode({ id: user.email }, params.secretOrKey);
     res.json({

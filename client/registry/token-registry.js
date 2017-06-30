@@ -4,9 +4,9 @@ class TokenRegistry {
   };
 
   requestToken(credentials) {
-    return window.tokenProxy.getToken(credentials).then(token => {
-      this._token = token;
-      return token;
+    return window.tokenProxy.getToken(credentials).then(obj => {
+      this._token = obj.token;
+      return obj;
     });
   };
 
@@ -15,6 +15,10 @@ class TokenRegistry {
   };
 
   setToken(token) {
+    this._token = token;
+  };
+
+  clearToken() {
     this._token = token;
   };
 };

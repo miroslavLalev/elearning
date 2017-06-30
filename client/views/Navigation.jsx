@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
 
 import { viewsHelper } from './util/views-helper';
+import { logout } from '../actions/user-actions';
 import { showLoginDialog, showRegisterDialog } from '../actions/static-actions';
 
-const _navigation = ({ id, firstname, showLogin, showRegister }) => {
+const _navigation = ({ id, firstname, showLogin, showRegister, logout }) => {
   return (
     <Navbar>
       <Navbar.Header>
@@ -20,8 +21,8 @@ const _navigation = ({ id, firstname, showLogin, showRegister }) => {
       <Navbar.Collapse>
         <Nav
           className={ viewsHelper.determineClass('logged-user-menu', function() { return !!firstname; }) }>
-          <NavItem onClick={ () => { showLogin() } }>Sign In</NavItem>
-          <NavItem onClick={ () => { showRegister() } }>Sign Up</NavItem>
+          <NavItem onClick={ () => { showLogin(); } }>Sign In</NavItem>
+          <NavItem onClick={ () => { showRegister(); } }>Sign Up</NavItem>
         </Nav>
         {/*TODO:Add full check for logged user*/}
         <Nav pullRight
@@ -30,7 +31,7 @@ const _navigation = ({ id, firstname, showLogin, showRegister }) => {
 
             <LinkContainer to="/users/{id}/profile"><MenuItem><Glyphicon glyph='user' /> Profile</MenuItem></LinkContainer>
             <MenuItem divider />
-            <MenuItem><Glyphicon glyph='log-out' /> Sign out</MenuItem>
+            <MenuItem onSelect={ () => { logout(); } }><Glyphicon glyph='log-out' /> Sign out</MenuItem>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
@@ -39,7 +40,6 @@ const _navigation = ({ id, firstname, showLogin, showRegister }) => {
 };
 
 const navContext = (state) => {
-  console.log(state);
    return {
      id: state.userContext.user.id,
      firstname: state.userContext.user.firstname
@@ -49,7 +49,8 @@ const navContext = (state) => {
 const events = (dispatch) => {
   return {
     showLogin: () => { dispatch(showLoginDialog()); },
-    showRegister: () => { dispatch(showRegisterDialog()); }
+    showRegister: () => { dispatch(showRegisterDialog()); },
+    logout: () => { dispatch(logout()); }
   };
 };
 

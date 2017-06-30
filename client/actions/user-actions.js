@@ -4,7 +4,6 @@ import { hideLoginDialog, hideRegisterDialog } from './static-actions';
 export const REQUEST_LOGIN = 'REQUEST_LOGIN';
 export const LOGIN = 'LOGIN';
 
-export const REQUEST_LOGOUT = 'REQUEST_LOGOUT';
 export const LOGOUT = 'LOGOUT';
 
 export const REQUEST_REFRESH_TOKEN = 'REQUEST_REFRESH_TOKEN';
@@ -27,8 +26,7 @@ function _login(user) {
 export function login(credentials) {
   return (dispatch, getState) => {
     dispatch(_requestLogin());
-    return window.tokenProxy.getToken(credentials).then(obj => {
-      console.log(obj);
+    return tokenRegistry.requestToken(credentials).then(obj => {
       dispatch(_login(obj.user));
       tokenRegistry.setToken(obj.token);
       dispatch(hideLoginDialog());
@@ -53,5 +51,16 @@ export function register(user) {
       console.log('Failed to register.');
       console.log(err);
     });
+  };
+};
+
+function _logout() {
+  return { type: LOGOUT };
+};
+
+export function logout() {
+  return (dispatch, getState) => {
+    dispatch(_logout());
+    tokenRegistry.clearToken();
   };
 };
