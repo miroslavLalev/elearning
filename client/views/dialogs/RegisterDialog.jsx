@@ -6,13 +6,14 @@ import { hideRegisterDialog } from '../../actions/static-actions';
 import { register } from '../../actions/user-actions';
 import RegisterForm from '../forms/RegisterForm';
 
+
 let c = {
-  name: '',
+  firstname: '',
   lastname: '',
   email: '',
   password: '',
   repeated: '',
-  type: undefined
+  role: 'STUDENT'
 }
 
 const _registerDialog = ({ visible, closeRegister, register }) => {
@@ -23,12 +24,12 @@ const _registerDialog = ({ visible, closeRegister, register }) => {
       </Modal.Header>
       <Modal.Body>
         <RegisterForm
-          saveName= { n => { c.name = n } }
+          saveFirstName= { n => { c.firstname = n } }
           saveLastName = { l => { c.lastname = l } }
           saveEmail = { e => { c.email = e } }
           savePassword = { p => { c.password = p } }
           saveRepeatedPassword = { r => { c.repeated = r } }
-          saveUserType = { t => { c.type = t } }
+          saveUserRole = { t => { c.role = t } }
         />
       </Modal.Body>
       <Modal.Footer>
@@ -46,7 +47,7 @@ const dialogContext = (state) => {
 const events = (dispatch) => {
   return {
     closeRegister: () => { dispatch(hideRegisterDialog()); },
-    register: (data) => { dispatch(register(data)); }
+    register: (data) => { console.log(data); dispatch(register(data)); }
   };
 };
 

@@ -21,7 +21,7 @@ export default class RegisterForm extends React.Component {
             <FormControl
               type="text"
               placeholder="Enter Your Name"
-              onChange={ (e) => { this.handleNameChange(e.target.value) }} />
+              onChange={ (e) => { this.handleFirstNameChange(e.target.value) }} />
           </Col>
         </FormGroup>
         <FormGroup>
@@ -59,7 +59,7 @@ export default class RegisterForm extends React.Component {
             <FormControl
               componentClass='select'
               placeholder='student'
-              onChange={ (e) => { this.handleUserTypeChange(e.target.value) }} >
+              onChange={ (e) => { this.handleUserRoleChange(e.target.value) }} >
                 <option value='STUDENT'>Student</option>
                 <option value='TEACHER'>Teacher</option>
             </FormControl>
@@ -69,16 +69,16 @@ export default class RegisterForm extends React.Component {
     )
   }
 
-  handleNameChange(name) {
-    this.props.saveName(name);
+  handleFirstNameChange(firstname) {
+    this.props.saveFirstName(firstname);
   }
 
   handleLastNameChange(lastname) {
-    this.props.saveName(lastname);
+    this.props.saveLastName(lastname);
   }
 
   handleEmailChange(email) {
-    this.props.saveEmail(name);
+    this.props.saveEmail(email);
   }
 
   handlePasswordChange(password) {
@@ -89,7 +89,7 @@ export default class RegisterForm extends React.Component {
     this.props.saveRepeatedPassword(password);
   }
 
-  handleUserTypeChange(type) {
-    this.props.saveUserType(type);
+  handleUserRoleChange(role) {
+    this.props.saveUserRole(role);
   }
 }
