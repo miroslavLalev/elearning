@@ -61,7 +61,8 @@ const _profile = ({ email, firstname, lastname, password, showLogin, showRegiste
                   </Col>
                   </FormGroup>
                 </Form>
-                <Button bsStyle='warning'>Update profile</Button>
+                <Button bsStyle='warning' className='butt'>Update profile</Button>
+                <Button bsStyle='warning' className='butt'>Discard changes</Button>
               </div>
             </div>
         );

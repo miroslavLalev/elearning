@@ -36,7 +36,7 @@ router.get('/', (req, res) => {
       return;
     }
 
-    const token = encode({ id: user.email }, JWT_SECRET);
+    const token = encode({ n: user.id, id: user.email }, JWT_SECRET);
     res.json({ user, token });
   }).catch(err => {
     console.log(err);

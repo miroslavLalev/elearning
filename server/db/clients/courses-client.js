@@ -7,7 +7,7 @@ class CoursesClient extends DatabaseClient {
 
   addCourse(course, user) {
     return this.executeQuery("INSERT INTO ${schema~}.COURSES(NAME, DESCRIPTION, AUTHOR) " +
-      "VALUES(${name}, ${description}, ${user})", Object.assign(lecture, { user }));
+      "VALUES(${name}, ${description}, ${user})", Object.assign(course, { user }));
   };
 
   getCourse(id) {

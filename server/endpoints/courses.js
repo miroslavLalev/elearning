@@ -20,7 +20,7 @@ router.post('/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const course = new Course(req.body);
-    coursesClient.addCourse(course, req.user.id).then(() => {
+    coursesClient.addCourse(course, req.user.n).then(() => {
       res.send('ok');
     }).catch(err => {
       res.json(err);
