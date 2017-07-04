@@ -14,10 +14,12 @@ const server = express();
 server.use(bodyParser.json());
 server.use(passport.initialize());
 
+const API_URI = '/api/v1';
+
 // Routing
-server.use(COURSES_PATH, coursesRouter);
-server.use(USERS_PATH, usersRouter);
-server.use(TOKEN_PATH, tokenRouter);
+server.use(API_URI + COURSES_PATH, coursesRouter);
+server.use(API_URI + USERS_PATH, usersRouter);
+server.use(API_URI + TOKEN_PATH, tokenRouter);
 
 var port = 9072;
 server.listen(port, () => {

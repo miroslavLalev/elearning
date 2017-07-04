@@ -4,36 +4,50 @@ import { encode } from 'jwt-simple';
 
 import { usersClient } from '../db/db-client-registry';
 import { hashHelper } from '../helpers/hash-helper';
+import { JWT_SECRET } from '../security/passport-configurator';
 
 const TOKEN_PATH = '/token';
 const router = express.Router();
 
-const params = {
-  secretOrKey: 'verysecret'
-};
-
-router.post('/', (req, res) => {
-  if (!req.body.email || !req.body.password) {
-    res.sendStatus(401);
+router.get('/', (req, res) => {
+  const auth = req.get('authorization');
+  if (!auth) {
+    res.set('WWW-Authenticate', 'x-Basic realm="Access token"');
+    res.status(401);
+    res.send();
     return;
   }
 
-  usersClient.findUser(req.body.email).then(user => {
-    if (!user || !hashHelper.compareHashes(req.body.password, user.password)) {
-      res.sendStatus(401);
+  const credentials = new Buffer(auth.substring('Basic'.length).trim(), 'base64').toString().split(':');
+  if (credentials.length !== 2) {
+    res.set('WWW-Authenticate', 'x-Basic realm="Access token"');
+    res.status(401);
+    res.send();
+    return;
+  }
+
+  const email = credentials[0];
+  const password = credentials[1];
+  usersClient.findUser(email).then(user => {
+    if (!user || !hashHelper.compareHashes(password, user.password)) {
+      res.set('WWW-Authenticate', 'x-Basic realm="Access token"');
+      res.status(401);
+      res.send();
       return;
     }
 
-    const token = encode({ id: user.email }, params.secretOrKey);
+    const token = encode({ id: user.email }, JWT_SECRET);
     res.json({ user, token });
   }).catch(err => {
     console.log(err);
-    res.send(401);
+    res.set('WWW-Authenticate', 'x-Basic realm="Access token"');
+    res.status(401);
+    res.send();
   });
 });
 
 router.get('/token/refresh',
-  passport.authenticate('jwt', { session: true }),
+  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const token = encode({ id: user.email }, params.secretOrKey);
     res.json({

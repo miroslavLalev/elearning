@@ -5,7 +5,9 @@ export default class User {
     this.email = plainUser.email;
     this.firstname = plainUser.firstname;
     this.lastname = plainUser.lastname;
-    this.password = hashHelper.hashPassword(plainUser.password);
     this.role = plainUser.role;
+    if (plainUser.password) {
+      this.password = hashHelper.hashPassword(plainUser.password);
+    }
   };
 };

@@ -1,6 +1,7 @@
 class FetchHelper {
   getJson(url, headers) {
     return fetch(url, {
+      mode: 'no-cors',
       method: 'GET',
       headers: headers || new Headers({
         'Content-Type': 'application/json'
@@ -12,6 +13,7 @@ class FetchHelper {
 
   postJson(url, headers, body) {
     return fetch(url, {
+      mode: 'no-cors',
       method: 'POST',
       headers: headers || new Headers({
         'Content-Type': 'application/json'

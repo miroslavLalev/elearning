@@ -1,14 +1,16 @@
 import passport from 'passport';
-import { ExtractJwt, Strategy } from 'passport-jwt';
+import { ExtractJwt, Strategy as JwtStrategy } from 'passport-jwt';
 
 import { usersClient } from '../db/db-client-registry';
 
+export const JWT_SECRET = 'verysecret';
+
 const params = {
-  secretOrKey: 'verysecret',
+  secretOrKey: JWT_SECRET,
   jwtFromRequest: ExtractJwt.fromAuthHeader()
 };
 
-passport.use(new Strategy(params, (payload, done) => {
+passport.use(new JwtStrategy(params, (payload, done) => {
   usersClient.findUser(payload.id).then(user => {
     if (user) {
       return done(null, { id: user.id });

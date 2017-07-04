@@ -18,11 +18,21 @@ router.post('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const id = req.params.id;
-  usersClient.findById(id).then((user) => {
+  usersClient.findUser(id).then((user) => {
     res.json(user);
   }).catch((err) => {
     res.json(err);
   });
+});
+
+router.put('/:id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const user = new User(req.body);
+    usersClient.findById(req.params.id).then(user => {
+      // merge users
+      // update user
+    });
 });
 
 export { router, USERS_PATH };

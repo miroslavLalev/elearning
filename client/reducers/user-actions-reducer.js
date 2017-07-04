@@ -2,14 +2,15 @@ import { objectsHelper } from '../helpers/objects-helper';
 import { LOGIN, LOGOUT } from '../actions/user-actions';
 
 const initialState = {
+  isFetching: false,
   user: {
-    id: '1',
-    email: 'polito@gmail.com',
-    firstname: 'Polina',
-    lastname: 'Krasteva',
-    role: 'STUDENT'
+    id: '',
+    email: '',
+    firstname: '',
+    lastname: '',
+    role: ''
   }
-}
+};
 
 const userContext = (state = initialState, action) => {
   switch (action.type) {

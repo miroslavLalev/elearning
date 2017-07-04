@@ -15,7 +15,7 @@ module.exports = {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.DefinePlugin({
         'process.env': {
-          'SERVICE_URL': JSON.stringify('https://owlearn.online')
+          'SERVICE_URL': JSON.stringify('https://owlearn.online/api/v1')
         }
       })
     ],

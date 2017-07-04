@@ -7,7 +7,15 @@ class TokenProxy extends Proxy {
   };
 
   getToken(credentials) {
-    return this.doPost(undefined, undefined, credentials);
+    if (!credentials) {
+      return this.doGet(undefined, undefined).catch(err => { return { token: "", user: {}} });
+    }
+
+    const b64s = btoa(credentials.email + ':' + credentials.password);
+    return this.doGet(undefined, new Headers({
+      'Authorization': 'Basic ' + b64s,
+      'Content-Type': 'application/json'
+    }));
   };
 };
 

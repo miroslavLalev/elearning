@@ -15,6 +15,7 @@ import LoginDialog from './views/dialogs/LoginDialog';
 import RegisterDialog from './views/dialogs/RegisterDialog';
 
 import { store } from './store';
+import { login } from './actions/user-actions';
 
 const history = createHashHistory();
 window.h = history;
@@ -35,6 +36,9 @@ const provider = (
     </Router>
   </Provider>
 );
+
+// try login
+store.dispatch(login());
 
 // Initial rendering
 ReactDOM.render(provider, document.getElementById('app'));
