@@ -4,6 +4,13 @@ class TokenRegistry {
   };
 
   requestToken(credentials) {
+    if (!credentials) {
+      return window.tokenProxy.getTokenFromCache().then(obj => {
+        this._token = obj.token;
+        return obj;
+      });
+    }
+
     return window.tokenProxy.getToken(credentials).then(obj => {
       this._token = obj.token;
       return obj;

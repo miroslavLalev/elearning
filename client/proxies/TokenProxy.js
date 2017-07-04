@@ -6,12 +6,16 @@ class TokenProxy extends Proxy {
     this._baseUrl += '/token';
   };
 
-  getToken(credentials) {
-    if (!credentials) {
-      return this.doGet(undefined, undefined).catch(err => { return { token: "", user: {}} });
-    }
+  getTokenFromCache() {
+    return this.doGet(undefined, new Headers({
+      'Authorization': 'Basic ' + window.localStorage.getItem('auth'),
+      'Content-Type': 'application/json'
+    }));
+  };
 
+  getToken(credentials) {
     const b64s = btoa(credentials.email + ':' + credentials.password);
+    window.localStorage.setItem('auth', b64s);
     return this.doGet(undefined, new Headers({
       'Authorization': 'Basic ' + b64s,
       'Content-Type': 'application/json'

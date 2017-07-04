@@ -6,7 +6,7 @@ export default class Proxy {
   };
 
   doGet(uri, headers) {
-    return fetchHelper.getJson(this._baseUrl + (uri || ''));
+    return fetchHelper.getJson(this._baseUrl + (uri || ''), headers);
   };
 
   doPost(uri, headers, body) {
